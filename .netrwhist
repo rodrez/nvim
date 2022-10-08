@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/home/rodrez/Code/next-oms/cypress/e2e/9-Ecr-Modal'
+let g:netrw_dirhist_1='/home/rodrez/Code/next-oms/cypress/e2e'
+let g:netrw_dirhist_0='/home/rodrez/Code/next-oms/cypress/e2e/9-Ecr-Modal'
+let g:netrw_dirhist_9='/home/rodrez/Code'
+let g:netrw_dirhist_8='/home/rodrez/Code/vizcode'
+let g:netrw_dirhist_7='/home/rodrez/Code/next-oms-backend'
+let g:netrw_dirhist_6='/home/rodrez/Code'
+let g:netrw_dirhist_5='/home/rodrez/Code/vizcode'
+let g:netrw_dirhist_4='/home/rodrez/Code'
+let g:netrw_dirhist_3='/home/rodrez/Code/vizcode'
