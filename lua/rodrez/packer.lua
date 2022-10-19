@@ -36,6 +36,7 @@ return require("packer").startup(function(use)
 		}),
 	})
 	use("simrat39/rust-tools.nvim")
+	use("mfussenegger/nvim-jdtls")
 	use("sbdchd/neoformat")
 	use("kyazdani42/nvim-web-devicons")
 	use({
@@ -55,4 +56,15 @@ return require("packer").startup(function(use)
 	use("simrat39/symbols-outline.nvim")
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
+
+	-- Commenting
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup({
+				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+			})
+		end,
+	})
 end)

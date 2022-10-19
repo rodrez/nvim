@@ -115,3 +115,5 @@ require("lspconfig").sumneko_lua.setup({
 		},
 	},
 })
+
+require("lspconfig").jdtls.setup(config())
