@@ -57,8 +57,18 @@ return require("packer").startup(function(use)
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
 
+	-- Editor
+	use("windwp/nvim-ts-autotag")
+	require("nvim-ts-autotag").setup()
+	use({
+		"windwp/nvim-autopairs",
+		config = function()
+			require("nvim-autopairs").setup({})
+		end,
+	})
+
 	-- Commenting
-  use 'JoosepAlviste/nvim-ts-context-commentstring'
+	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use({
 		"numToStr/Comment.nvim",
 		config = function()
