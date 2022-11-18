@@ -58,8 +58,16 @@ return require("packer").startup(function(use)
 	use("saadparwaiz1/cmp_luasnip")
 
 	-- Editor
-	use("windwp/nvim-ts-autotag")
-	require("nvim-ts-autotag").setup()
+	use({
+		"kylechui/nvim-surround",
+		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+		config = function()
+			require("nvim-surround").setup({
+				-- Configuration here, or leave empty to use defaults
+			})
+		end,
+	})
+
 	use({
 		"windwp/nvim-autopairs",
 		config = function()
