@@ -1,7 +1,7 @@
 vim.cmd([[packadd packer.nvim]])
 
 return require("packer").startup(function(use)
-	-- Packer can manage itself
+	-- Packer can "manage" itself
 	use("wbthomason/packer.nvim")
 	use("folke/tokyonight.nvim")
 	use({
@@ -12,6 +12,7 @@ return require("packer").startup(function(use)
 			})
 		end,
 	})
+	use("nvim-treesitter/nvim-treesitter-textobjects")
 	use("nvim-lua/plenary.nvim")
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -57,17 +58,16 @@ return require("packer").startup(function(use)
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
 
+  -- Practice
+  use('ThePrimeagen/vim-be-good')
+
 	-- Editor
+  -- test
 	use({
 		"kylechui/nvim-surround",
-		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-		config = function()
-			require("nvim-surround").setup({
-				-- Configuration here, or leave empty to use defaults
-			})
-		end,
+		tag = "v1.0.0", -- Use for stability; omit to use `main` branch for the latest features
 	})
-
+  require("nvim-surround").setup()
 	use({
 		"windwp/nvim-autopairs",
 		config = function()

@@ -25,5 +25,62 @@ require'nvim-treesitter.configs'.setup {
         -- Using this option may slow down your editor, and you may see some duplicate highlights.
         -- Instead of true it can also be a list of languages
         additional_vim_regex_highlighting = false
-    }
+    },
+    	textobjects = {
+		move = {
+			enable = true,
+			set_jumps = true, -- whether to set jumps in the jumplist
+			goto_next_start = {
+				[']m'] = '@function.outer',
+				[']]'] = '@class.outer',
+				[']b'] = '@block.outer',
+				[']a'] = '@parameter.inner',
+				[']k'] = '@call.outer',
+			},
+			goto_next_end = {
+				[']M'] = '@function.outer',
+				[']['] = '@class.outer',
+				[']B'] = '@block.outer',
+				[']A'] = '@parameter.inner',
+				[']K'] = '@call.outer',
+			},
+			goto_previous_start = {
+				['[m'] = '@function.outer',
+				['[['] = '@class.outer',
+				['[b'] = '@block.outer',
+				['[a'] = '@parameter.inner',
+				['[k'] = '@call.inner',
+			},
+			goto_previous_end = {
+				['[M'] = '@function.outer',
+				['[]'] = '@class.outer',
+				['[B'] = '@block.outer',
+				['[A'] = '@parameter.inner',
+				['[K'] = '@call.inner',
+			},
+		},
+		select = {
+			enable = true,
+			lookahead = true,
+			include_surrounding_whitespace = true,
+			keymaps = {
+				['af'] = '@function.outer',
+				['if'] = '@function.inner',
+				['ac'] = '@class.outer',
+				['ic'] = '@class.inner',
+				['ab'] = '@block.outer',
+				['ib'] = '@block.inner',
+				['al'] = '@loop.outer',
+				['il'] = '@loop.inner',
+				['a/'] = '@comment.outer',
+				['i/'] = '@comment.outer', -- no inner for comment
+				['aa'] = '@parameter.outer', -- parameter -> argument
+				['ia'] = '@parameter.inner',
+				['ak'] = '@call.outer',
+				['ik'] = '@call.inner',
+				['ai'] = '@conditional.outer', -- i as if
+				['ii'] = '@conditional.inner',
+			},
+		},
+	},
 }
