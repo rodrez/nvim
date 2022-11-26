@@ -79,6 +79,7 @@ require("lspconfig").tsserver.setup(config({
 	--root_dir = function() return vim.loop.cwd() end      -- run lsp for javascript in any directory
 }))
 require("lspconfig").svelte.setup(config())
+require'lspconfig'.astro.setup(config())
 require("lspconfig").rust_analyzer.setup(config({
 	cmd = { "rustup", "run", "nightly", "rust-analyzer" },
 	--[[
