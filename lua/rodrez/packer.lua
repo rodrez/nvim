@@ -33,7 +33,7 @@ return require("packer").startup(function(use)
 			},
 		}),
 		require("mason-lspconfig").setup({
-			ensure_installed = { "sumneko_lua", "tsserver", "pyright", "rust_analyzer" },
+			ensure_installed = { "sumneko_lua", "tsserver", "pyright", "rust_analyzer", "astro", "svelte" },
 		}),
 	})
 	use("simrat39/rust-tools.nvim")
