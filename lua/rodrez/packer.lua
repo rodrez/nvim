@@ -58,22 +58,48 @@ return require("packer").startup(function(use)
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
 
-  -- Practice
-  use('ThePrimeagen/vim-be-good')
+	-- Practice
+	use("ThePrimeagen/vim-be-good")
 
 	-- Editor
-  -- test
+	-- test
 	use({
 		"kylechui/nvim-surround",
 		tag = "v1.0.0", -- Use for stability; omit to use `main` branch for the latest features
 	})
-  require("nvim-surround").setup()
+	require("nvim-surround").setup()
 	use({
 		"windwp/nvim-autopairs",
 		config = function()
 			require("nvim-autopairs").setup({})
 		end,
 	})
+	use({
+		"folke/zen-mode.nvim",
+		config = function()
+			require("zen-mode").toggle({
+				window = {
+					backdrop = 0
+				},
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			})
+		end,
+	})
+  use {
+  "folke/twilight.nvim",
+  config = function()
+    require("twilight").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  end
+}
+
+	-- Git integrations
+	use("lewis6991/gitsigns.nvim")
 
 	-- Commenting
 	use("JoosepAlviste/nvim-ts-context-commentstring")

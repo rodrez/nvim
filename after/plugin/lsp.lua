@@ -78,6 +78,7 @@ require("lspconfig").tsserver.setup(config({
 	filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact", "javascript.jsx" },
 	--root_dir = function() return vim.loop.cwd() end      -- run lsp for javascript in any directory
 }))
+require("lspconfig").tailwindcss.setup(config())
 require("lspconfig").svelte.setup(config())
 require("lspconfig").rust_analyzer.setup(config({
 	cmd = { "rustup", "run", "nightly", "rust-analyzer" },
@@ -115,5 +116,3 @@ require("lspconfig").sumneko_lua.setup({
 		},
 	},
 })
-
-require("lspconfig").jdtls.setup(config())
