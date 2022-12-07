@@ -1,4 +1,10 @@
 vim.cmd([[packadd packer.nvim]])
+-- # Recognize Astro files
+vim.filetype.add({
+  extension = {
+    astro = "astro"
+  }
+})
 
 return require("packer").startup(function(use)
 	-- Packer can "manage" itself
@@ -11,7 +17,7 @@ return require("packer").startup(function(use)
 				with_sync = true,
 			})
 		end,
-	})
+	},{run = ":TSUpdate"})
 	use("nvim-treesitter/nvim-treesitter-textobjects")
 	use("nvim-lua/plenary.nvim")
 	use({
@@ -79,7 +85,7 @@ return require("packer").startup(function(use)
 		config = function()
 			require("zen-mode").toggle({
 				window = {
-					backdrop = 0
+					backdrop = 0,
 				},
 				-- your configuration comes here
 				-- or leave it empty to use the default settings
@@ -87,16 +93,24 @@ return require("packer").startup(function(use)
 			})
 		end,
 	})
-  use {
-  "folke/twilight.nvim",
-  config = function()
-    require("twilight").setup {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    }
-  end
-}
+	use({
+		"folke/twilight.nvim",
+		config = function()
+			require("twilight").setup({
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			})
+		end,
+	})
+	-- Startup
+	use({
+		"startup-nvim/startup.nvim",
+		requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+		config = function()
+			require("startup").setup()
+		end,
+	})
 
 	-- Git integrations
 	use("lewis6991/gitsigns.nvim")

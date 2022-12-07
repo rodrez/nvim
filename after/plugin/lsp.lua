@@ -25,7 +25,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 local function config(_config)
 	return vim.tbl_deep_extend("force", {
 
-		capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+		capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
 		on_attach = function()
 			nnoremap("gd", function()
 				vim.lsp.buf.definition()
@@ -78,9 +78,11 @@ require("lspconfig").tsserver.setup(config({
 	filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact", "javascript.jsx" },
 	--root_dir = function() return vim.loop.cwd() end      -- run lsp for javascript in any directory
 }))
-require("lspconfig").tailwindcss.setup(config())
 require("lspconfig").svelte.setup(config())
 require'lspconfig'.astro.setup(config())
+vim.api.nvim_exec('autocmd BufNewFile,BufRead *.astro set ft=astro', false)
+
+require("lspconfig").tailwindcss.setup(config())
 require("lspconfig").rust_analyzer.setup(config({
 	cmd = { "rustup", "run", "nightly", "rust-analyzer" },
 	--[[
