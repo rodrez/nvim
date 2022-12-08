@@ -79,7 +79,9 @@ require("lspconfig").tsserver.setup(config({
 	--root_dir = function() return vim.loop.cwd() end      -- run lsp for javascript in any directory
 }))
 require("lspconfig").svelte.setup(config())
-require'lspconfig'.astro.setup(config())
+require'lspconfig'.astro.setup(config({
+  filetypes = {"astro"}
+}))
 vim.api.nvim_exec('autocmd BufNewFile,BufRead *.astro set ft=astro', false)
 
 require("lspconfig").tailwindcss.setup(config())
@@ -119,3 +121,5 @@ require("lspconfig").sumneko_lua.setup({
 		},
 	},
 })
+require'lspconfig'.prismals.setup(config())
+vim.api.nvim_exec('autocmd BufNewFile,BufRead *.prisma set ft=prisma', false)
