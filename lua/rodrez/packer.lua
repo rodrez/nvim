@@ -25,10 +25,7 @@ return require("packer").startup(function(use)
 		tag = "0.1.0",
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
-	use({
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
-		"neovim/nvim-lspconfig",
+	use({'williamboman/mason.nvim',
 		require("mason").setup({
 			ui = {
 				icons = {
@@ -38,10 +35,13 @@ return require("packer").startup(function(use)
 				},
 			},
 		}),
+})
+	use({'williamboman/mason-lspconfig.nvim',
 		require("mason-lspconfig").setup({
 			ensure_installed = { "sumneko_lua", "tsserver", "pyright", "rust_analyzer", "astro", "svelte" },
 		}),
-	})
+})
+	use("neovim/nvim-lspconfig")
 	use("simrat39/rust-tools.nvim")
 	use("mfussenegger/nvim-jdtls")
 	use("sbdchd/neoformat")
