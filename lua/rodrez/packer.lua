@@ -72,11 +72,13 @@ return require("packer").startup(function(use)
 	use({
 		"kylechui/nvim-surround",
 		tag = "v1.0.0", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+			require("nvim-surround").setup({})
+		end,
 	})
-	require("nvim-surround").setup()
 	use({
 		"windwp/nvim-autopairs",
-		config = function()
+    config = function()
 			require("nvim-autopairs").setup({})
 		end,
 	})
